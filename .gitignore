@@ -1,0 +1,54 @@
+﻿# ---- Python ----
+__pycache__/
+*.py[cod]
+*.class
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+.eggs/
+dist/
+build/
+pip-wheel-metadata/
+.python-version
+
+# Virtual env
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Logs
+*.log
+
+# Coverage / testing
+.coverage
+.tox/
+\.pytest_cache/
+
+# ---- IDE/Editor ----
+.vscode/
+.idea/
+*.iml
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+
+# ---- Custom project rules ----
+*.xlsx
+*.xls
+*.csv
+
+# Local configuration — must NOT be committed
+.env
+.env.local
+
+# Claude Code local overrides
+.claude/settings.local.json
+
+# Personal drafts / articles
+article-vc.md

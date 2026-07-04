@@ -1,0 +1,6 @@
+# Runtime зависимости Project Manager.
+# Только Pillow — для иконок в GUI. Всё остальное — стандартная библиотека Python.
+Pillow>=10.0.0
+
+# Для сборки в .exe (опционально):
+# pyinstaller>=6.0.0
