@@ -15,6 +15,7 @@ Python 3.10+, Tkinter, Windows 10/11.
 ## Что умеет
 
 - ▶️ **Запуск Claude Code / Codex CLI в один клик** — открывает Windows Terminal сразу в нужной папке с запущенным агентом.
+- 🔁 **Продолжение вчерашней сессии по правому клику** — в контекстном меню на проекте есть пункт «Open terminal (resume)». Под капотом он запускает Claude Code через `claude --resume` (открывается пикер прошлых сессий по этой папке) или `claude -c` (сразу продолжает последнюю). Утром выбрал проект → правый клик → Resume → продолжаешь ровно с того места, где вчера остановился, со всей историей контекста.
 - 🔍 **Навигация по сотням проектов** — поиск по названию папки и по содержимому `IDEA.md` / `README.md`. Фильтрация в реальном времени.
 - 📌 **Закрепление проектов** — то, что сейчас в работе, всегда висит наверху списка.
 - 🌅 **Пресеты Windows Terminal** — сохранённые многовкладочные сессии для утреннего рабочего сценария; открывает 5–10 проектов сразу.
@@ -45,7 +46,14 @@ pip install -r requirements.txt
 
 ### Пример скрипта-обёртки Claude
 
-`Claude-BypassProxy.cmd`:
+`Claude-BypassProxy.cmd` (resume-режим, для правого клика → Resume):
+```bat
+@echo off
+cd /d %1
+claude --resume
+```
+
+`Claude-Fresh-BypassProxy.cmd` (fresh-режим, чистая сессия):
 ```bat
 @echo off
 cd /d %1
@@ -104,6 +112,7 @@ Python 3.10+, Tkinter, Windows 10/11.
 ### Features
 
 - ▶️ **Launch Claude Code / Codex CLI in one click** — opens Windows Terminal directly in the project folder with the agent already running.
+- 🔁 **Resume yesterday's session via right-click** — the context menu has an "Open terminal (resume)" item. Under the hood it launches Claude Code with `claude --resume` (opens a picker of past sessions in that folder) or `claude -c` (continues the most recent one). Pick a project in the morning, right-click, Resume — you're back exactly where you left off, full context intact.
 - 🔍 **Navigate hundreds of projects** — search by folder name and by `IDEA.md` / `README.md` contents. Real-time filtering.
 - 📌 **Pin projects** — whatever you're actively working on stays at the top of the list.
 - 🌅 **Windows Terminal presets** — saved multi-tab sessions; open 5–10 projects at once for your morning routine.
@@ -132,9 +141,16 @@ pip install -r requirements.txt
 
 All options are documented inline in `.env.example`.
 
-#### Example Claude wrapper script
+#### Example Claude wrapper scripts
 
-`Claude-BypassProxy.cmd`:
+`Claude-BypassProxy.cmd` (resume mode, wired to right-click → Resume):
+```bat
+@echo off
+cd /d %1
+claude --resume
+```
+
+`Claude-Fresh-BypassProxy.cmd` (fresh mode, clean session):
 ```bat
 @echo off
 cd /d %1
